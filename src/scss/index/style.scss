@@ -1,0 +1,43 @@
+@import "../nullstyle";
+@import "../variables";
+@import "../mixin";
+@import "../fonts";
+
+@import "_header";
+@import "_main";
+@import "../_footer";
+
+
+
+body, html {
+    width: 100vw;
+    height: 100vh;
+    background-color: $col-bg-body;
+    scroll-behavior:smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+[class*="__container"] {
+    @include flex-column;
+    max-width: $width-container;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    @include calc(gap, 30, 10, 768, 380);
+
+    @include mq($mq-tablet-wide, max) {
+        @include calc($calc-padding-left, 40, 16, 768, 380);
+        @include calc($calc-padding-right, 40, 16, 768, 380);
+    }
+
+    @include mq($mq-tablet, max) {
+        max-width: 768px;
+    }
+
+    @include mq($mq-phone, max) {
+        padding: 0 16px;
+    }
+}
+

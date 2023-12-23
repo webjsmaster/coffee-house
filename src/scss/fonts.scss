@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "Inter-Regular";
+    src: url('$fonts/Inter-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Inter-SemiBold";
+    src: url('$fonts/Inter-SemiBold.ttf');
+}
+
+@mixin heading-1 {
+    font-family: Inter-SemiBold;
+    font-size: 72px;
+    line-height: 105%;
+}
+
+
+@mixin heading-1-mobile {
+    font-family: Inter-SemiBold;
+    font-size: 42px;
+    line-height: 115%;
+}
+
+@mixin heading-1-accent {
+    @include heading-1;
+    font-style: italic;
+}
+
+@mixin heading-1-accent-mobile {
+    @include heading-1-mobile();
+    font-style: italic;
+}
+
+@mixin heading-2 {
+    font-family: Inter-SemiBold;
+    font-size: 60px;
+    line-height: 75px;
+}
+
+@mixin heading-2-mobile {
+    font-family: Inter-SemiBold;
+    font-size: 32px;
+    line-height: 125%;
+}
+
+@mixin heading-2-accent {
+    @include heading-2;
+    font-style: italic;
+}
+
+@mixin heading-2-accent-mobile {
+    @include heading-2-mobile;
+    font-style: italic;
+}
+
+@mixin heading-3 {
+    font-family: Inter-SemiBold;
+    font-size: 24px;
+    line-height: 125%;
+}
+
+@mixin body-medium {
+    font-family: Inter-Regular;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+@mixin body-caption  {
+    font-family: Inter-SemiBold;
+    font-size: 10px;
+    line-height: 140%;
+}
+
+@mixin action-link-button  {
+    font-family: Inter-SemiBold;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+@mixin action-burger-link  {
+    font-family: Inter-SemiBold;
+    font-size: 32px;
+    line-height: 125%;
+}

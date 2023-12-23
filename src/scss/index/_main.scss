@@ -1,0 +1,9 @@
+@import "_favorite";
+@import "_about";
+@import "_app";
+
+.main{
+    margin-top: 95px;
+    @include flex-column;
+    gap: 100px;
+}

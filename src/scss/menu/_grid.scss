@@ -1,0 +1,149 @@
+.grid {
+	&__item {
+		@include flex-column;
+		width: 310px;
+		min-height: 506px;
+		border-radius: 40px;
+		border: 1px solid $col-border-light;
+		color: $col-text-dark;
+		cursor: pointer;
+		transition: all 0.3s ease 0s;
+	}
+
+	&__item.hide{
+		display: none;
+	}
+
+	&__item.close {
+		animation: close 0.2s ease-out forwards;
+	}
+
+	&__item.open {
+		animation: close 0.2s ease-out reverse forwards;
+	}
+
+	&__poster {
+		@include flex-center;
+		height: 310px;
+		overflow: hidden;
+		width: 100%;
+		border-radius: 40px;
+		position: relative;
+
+		pointer-events: none
+		img {
+			transform: scale(1);
+			position: absolute;
+			object-fit: cover;
+			opacity: 0;
+			transition: opacity .7s ease, transform .3s linear;
+		}
+	}
+
+	&__poster.loaded img {
+		opacity: 1;
+		transition: opacity 0.7s ease, transform 0.3s linear;
+	}
+
+	&__poster.loaded > .spinner {
+		display: none;
+	}
+
+	@media (hover: hover) or (min-width : 1024px) {
+		&__item:hover > &__poster > img {
+			transition: all 0.3s ease 0s;
+			transform: scale(0.92);
+		}
+
+		&__item:hover {
+			transition: all 0.3s ease 0s;
+			box-shadow: 0px 0px 40px $col-border-light;
+		}
+	}
+
+	&__description {
+		@include flex-column;
+		width: 100%;
+		gap: 12px;
+		align-items: start;
+		padding: 20px;
+		flex: 1;
+	}
+
+	&__title {
+		@include heading-3;
+	}
+
+	&__subtitle {
+		@include body-medium;
+		flex: 1 1 auto;
+	}
+
+	&__price {
+		@include heading-3;
+	}
+}
+
+@keyframes close {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.spinner {
+	width: 100px;
+	height: 100px;
+	position: relative;
+}
+
+
+.spinner div {
+	width: 100%;
+	height: 100%;
+	border: 10px solid transparent;
+	border-top-color: $col-border-dark;
+	border-radius: 50%;
+	position: absolute;
+	animation: spinnerOne 1.2s linear infinite;
+}
+
+@keyframes spinnerOne {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotate(180deg);
+		border-width: 1px;
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner div:nth-of-type(2) {
+	border: 10px solid transparent;
+	border-bottom-color: $col-text-accent;
+	animation: spinnerTwo 1.2s linear infinite;
+}
+
+@keyframes spinnerTwo {
+	0% {
+		transform: rotate(0deg);
+		border-width: 1px;
+	}
+
+	50% {
+		transform: rotate(180deg);
+		border-width: 10px;
+	}
+
+	100% {
+		transform: rotate(360deg);
+		border-width: 1px;
+	}
+}

@@ -1,0 +1,96 @@
+//^ ---------- Миксин для брейкпоитов -----------
+// @include mq('tablet-wide'){
+//      padding-top: 4rem;
+//      font-size: 2.4rem;
+//}
+
+$mq-phone: 'phone';
+$mq-phone-wide: 'phone-wide';
+$mq-phablet: 'phablet';
+$mq-tablet-small: 'tablet-small';
+$mq-tablet: 'tablet';
+$mq-tablet-wide: 'tablet-wide';
+$mq-desktop: 'desktop';
+$mq-desktop-intermediate: 'desktop-intermediate';
+$mq-desktop-wide: 'desktop-wide';
+
+$breakpoints: (
+	'phone': 381px,
+	'phone-wide': 480px,
+	'phablet': 560px,
+	'tablet-small': 720px,
+	'tablet': 769px,
+	'tablet-wide': 1024px,
+	'desktop': 1248px,
+	'desktop-intermediate': 1320px,
+	'desktop-wide': 1440px,
+);
+@mixin mq($width, $type: min) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+//* миксин для создания масштабируемых элементов(обычно изображения/картинки заднего фона), чтобы поддерживать соотношение
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+	$padding: unquote(($y / $x) * 100 + '%');
+	@if $pseudo {
+		&:before {
+			@include pseudo($pos: relative);
+			width: 100%;
+			padding-top: $padding;
+		}
+	} @else {
+		padding-top: $padding;
+	}
+}
+
+//! Пример =========>
+// div {
+//   @include responsive-ratio(16,9);
+// }
+
+$calc-font-size: font-size;
+$calc-line-height: line-height;
+$calc-padding-left: padding-left;
+$calc-padding-right: padding-right;
+
+@mixin calc($property, $from, $to, $startWidth, $endWidth) {
+	#{$property}: calc(#{$to + px} + ($from - $to) * ((100vw - #{$endWidth + px}) / ($startWidth - $endWidth)));
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin transformX {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin vertical-center {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}

@@ -1,0 +1,72 @@
+.modal {
+  &__content {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    //width: 500px;
+    //height: 300px;
+    padding: 50px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px black;
+    opacity: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.block-buttons__input:nth-child(1):checked ~ .block-buttons__buttons-view > .button:nth-child(1) {
+	background-color: #665F55;
+}
+
+.block-buttons__input:nth-child(1):checked ~ .block-buttons__buttons-view > .button:nth-child(1) > .button__label {
+	cursor: auto;
+}
+
+.block-buttons__input:nth-child(1):checked ~ .block-buttons__buttons-view > .button:nth-child(1) > .button__title {
+	color: #E1D4C9;
+}
+
+.block-buttons__input:nth-child(1):checked ~ .block-buttons__buttons-view > .button:nth-child(1) > .button__icon {
+	background-color: #E1D4C9;
+}
+
+.block-buttons__input:nth-child(2):checked ~ .block-buttons__buttons-view > .button:nth-child(2) {
+	background-color: #665F55;
+}
+
+.block-buttons__input:nth-child(2):checked ~ .block-buttons__buttons-view > .button:nth-child(2) > .button__label {
+	cursor: auto;
+}
+
+.block-buttons__input:nth-child(2):checked ~ .block-buttons__buttons-view > .button:nth-child(2) > .button__title {
+	color: #E1D4C9;
+}
+
+.block-buttons__input:nth-child(2):checked ~ .block-buttons__buttons-view > .button:nth-child(2) > .button__icon {
+	background-color: #E1D4C9;
+}
+
+.block-buttons__input:nth-child(3):checked ~ .block-buttons__buttons-view > .button:nth-child(3) {
+	background-color: #665F55;
+}
+
+.block-buttons__input:nth-child(3):checked ~ .block-buttons__buttons-view > .button:nth-child(3) > .button__label {
+	cursor: auto;
+}
+
+.block-buttons__input:nth-child(3):checked ~ .block-buttons__buttons-view > .button:nth-child(3) > .button__title {
+	color: #E1D4C9;
+}
+
+.block-buttons__input:nth-child(3):checked ~ .block-buttons__buttons-view > .button:nth-child(3) > .button__icon {
+	background-color: #E1D4C9;
+}
+
+

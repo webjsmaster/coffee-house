@@ -1,0 +1,182 @@
+.modal {
+	&__window {
+		display: flex;
+		width: 800px;
+		padding: 16px;
+		justify-content: center;
+		align-items: flex-start;
+
+		padding: 16px;
+		border-radius: 40px;
+		background-color: $col-bg-body;
+		margin: 40px;
+
+		@include mq($mq-tablet-small, max) {
+			margin: 20px;
+			padding: 16px 0px;
+		}
+	}
+
+	// .modal__poster
+
+	&__poster {
+		width: 310px;
+		height: 310px;
+		border-radius: 40px;
+		overflow: hidden;
+
+		flex: 310px;
+		flex-shrink: 0;
+
+		@include flex-center;
+
+		img {
+			width: 340px;
+			height: 340px;
+		}
+
+		@include mq($mq-tablet-small, max) {
+			display: none;
+			
+		}
+	}
+
+	// .modal__description
+
+	&__description {
+		display: flex;
+		padding-left: 20px;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 19px;
+		flex: auto;
+
+		@include mq($mq-tablet-small, max) {
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+	}
+
+	// .modal__title
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 12px;
+		align-self: stretch;
+		color: $col-text-dark;
+
+		div {
+			@include heading-3;
+		}
+
+		span {
+			@include body-medium;
+		}
+	}
+
+	// .modal__block-buttons
+
+	&__block-buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		align-self: stretch;
+		color: $col-text-dark;
+	}
+
+	// .modal__total
+
+	&__total {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		align-self: stretch;
+		color: $col-text-dark;
+		@include heading-3;
+	}
+
+	// .modal__info
+
+	&__info {
+		display: flex;
+		padding: 12px 0px;
+		align-items: flex-start;
+		gap: 8px;
+		align-self: stretch;
+		border-top: 1px solid $col-border-light;
+	}
+
+	// .modal__close-btn
+
+	&__close-btn {
+		display: flex;
+		padding: 10px 78px;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		align-self: stretch;
+        border-radius: 100px;
+        border: 1px solid $col-border-dark;
+
+        @include action-link-button;
+        color: $col-text-dark;
+        background-color: initial;
+
+        @media (hover: hover) or (min-width : 1024px) {
+            &:hover {
+                transition: all 0.3s ease 0s;
+                background-color: $col-bg-container;
+                color: $col-text-light;
+            }
+        }
+	}
+}
+.block-buttons {
+	// .block-buttons__title
+
+	&__title {
+		@include body-medium;
+	}
+
+	// .block-buttons__choice-block
+
+	&__choice-block {
+	}
+
+	// .block-buttons__input
+
+	&__input {
+		display: none;
+	}
+
+	// .block-buttons__buttons-view
+
+	&__buttons-view {
+		display: flex;
+		align-items: flex-start;
+		align-content: flex-start;
+		gap: 5px;
+		align-self: stretch;
+		flex-wrap: wrap;
+	}
+}
+
+.info {
+	// .info__icon
+
+	&__icon {
+		width: 16px;
+		height: 16px;
+	}
+
+	// .info__text
+
+	&__text {
+		@include body-caption;
+		color: $col-text-dark;
+	}
+}

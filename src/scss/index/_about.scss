@@ -1,0 +1,123 @@
+.about {
+	width: 100%;
+	// .about__container
+
+	&__container {
+		gap: 40px !important;
+
+		@include mq($mq-tablet, max) {
+			gap: 30px !important;
+		}
+	}
+
+	// .about__title
+
+	&__title {
+		width: 101%;
+		margin-left: 1rem;
+		@include heading-2;
+		color: $col-text-dark;
+		letter-spacing: 0px;
+
+		span {
+			@include heading-2-accent;
+			color: $col-text-accent;
+			letter-spacing: 0px;
+		}
+
+		@include mq($mq-tablet, max) {
+			margin-left: 5px;
+		}
+
+		@include mq($mq-tablet-wide, max) {
+			@include calc($calc-font-size, 60, 32, 767, 380);
+			@include calc($calc-line-height, 75, 40, 767, 380);
+			span{
+				@include calc($calc-font-size, 60, 32, 767, 380);
+				@include calc($calc-line-height, 75, 40, 767, 380);
+			}
+		}
+
+		@include mq($mq-phone, max) {
+			width: 100%;
+			text-align: start;
+			margin-left: 0;
+			@include heading-2-mobile;
+			span{
+				@include heading-2-accent-mobile;
+			}
+		}
+	}
+
+	// .about__images
+
+	&__images {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 430px 120px 430px;
+		grid-gap: 40px;
+
+		@include mq($mq-tablet, max) {
+			@include flex-column;
+			grid-gap: 30px;
+		}
+	}
+
+	// .about__item
+
+	&__item {
+		@include flex-center;
+		border-radius: 20px;
+		overflow: hidden;
+		position: relative;
+
+		@include mq($mq-tablet, max) {
+			margin-top: 10px;
+			height: 590px;
+		}
+
+		@include mq($mq-tablet-small, max) {
+			width: 100%;
+		}
+
+		img {
+			transition: all 0.3s ease 0s;
+			transform: scale(1);
+			@include mq($mq-tablet, max) {
+				width: 100%;
+				transform: scale(1.05);
+			}
+
+			@include mq($mq-tablet-small, max) {
+				width: auto;
+				transform: scale(1);
+			}
+		}
+	}
+
+	&__item:nth-child(2n) {
+		@include mq($mq-tablet, max) {
+			display: none;
+		}
+	}
+
+	@media (hover: hover) or (min-width : 1024px) {
+		&__item:hover > img {
+			transition: all 0.3s ease 0s;
+			transform: scale(1.05);
+		}
+	}
+
+	&__item:nth-child(1) {
+		grid-area: 1 / auto / 3 / auto;
+	}
+
+	&__item:nth-child(3) {
+		grid-area: 2 / auto / 4 / auto;
+	}
+
+	&__item:nth-child(4) {
+		grid-area: 3 / auto / 3 / auto;
+	}
+}

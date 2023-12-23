@@ -1,0 +1,164 @@
+.footer {
+	margin-top: 100px;
+	color: $col-text-light;
+	margin-bottom: 30px;
+
+	// .footer__container
+
+	&__container {
+	}
+
+	&__wrapper {
+		@include flex-between;
+		width: 100%;
+		gap: 100px;
+		padding: 100px;
+		background-color: $col-bg-container;
+		border-radius: 40px;
+
+		@include mq($mq-tablet-wide, max) {
+			flex-direction: column;
+			padding-left: 60px;
+			padding-bottom: 105px;
+		}
+
+		@include mq($mq-phone-wide, max) {
+			padding-left: 16px;
+			padding-right: 14px;
+			padding-top: 60px;
+			padding-bottom: 65px;
+			gap: 40px;
+		}
+	}
+
+	// .footer__offer
+
+	&__offer {
+		@include flex-column;
+		align-items: start;
+		gap: 40px;
+		flex: 0 0 calc(50% - 50px);
+	}
+
+	// .footer__title
+
+	&__title {
+		@include heading-2;
+		span {
+			@include heading-2-accent;
+			color: $col-text-accent;
+		}
+		@include mq($mq-phone-wide, max) {
+			@include calc($calc-font-size, 60, 32, 480, 380);
+			@include calc($calc-line-height, 75, 40, 480, 380);
+			span {
+				@include calc($calc-font-size, 60, 32, 480, 380);
+				@include calc($calc-line-height, 75, 40, 480, 380);
+			}
+		}
+	}
+
+	// .footer__socials
+
+	&__socials {
+		display: flex;
+		gap: 11px;
+	}
+
+	&__socials > button {
+		@include flex-center;
+		width: 60px;
+		height: 60px;
+		border: 1px solid $col-border-light;
+		border-radius: 100%;
+		background-color: inherit;
+		transition: all 0.3s ease 0s;
+
+		@media (hover: hover) or (min-width : 1024px) {
+			&:hover {
+				transition: all 0.3s ease 0s;
+				background-color: $col-bg-body;
+				svg > path {
+					transition: all 0.3s ease 0s;
+					stroke: $col-text-dark;
+				}
+			}
+		}
+	}
+
+	// .footer__contacts-info
+
+	&__contacts-info {
+		flex: 0 0 calc(50% - 50px);
+		@include flex-column;
+		align-items: start;
+		gap: 39px;
+
+		@include mq($mq-tablet-wide, max) {
+			width: 100%;
+		}
+	}
+
+	&__contacts-info > span {
+		@include heading-3;
+	}
+
+	// .footer__contacts
+
+	&__contacts {
+		@include flex-column;
+		align-items: start;
+		gap: 20px;
+	}
+
+	// .footer__item
+
+	&__item {
+		position: relative;
+	}
+
+	&__item:last-child {
+		cursor: auto;
+	}
+
+	&__item::before,
+	&__item::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		width: 0;
+		opacity: 0.2;
+		height: 2px;
+		background-color: $col-text-light;
+		transition: all 0.3s ease 0s;
+	}
+
+	&__item > a,
+	&__item > div {
+		@include flex-between;
+		@include action-link-button;
+		color: $col-text-light;
+		text-decoration: none;
+		justify-content: start;
+		gap: 10px;
+	}
+
+	&__item::after {
+		transform: translateX(-100%);
+		left: 50.1%;
+	}
+
+	&__item::before {
+		transform: translateX(0);
+		left: 49.9%;
+	}
+
+	@media (hover: hover) or (min-width : 1024px) {
+		&__item:not(:last-child):hover::before,
+		&__item:not(:last-child):hover::after {
+			width: 50%;
+			opacity: 1;
+			transition: all 0.6s ease-out 0s;
+		}
+	}
+}
